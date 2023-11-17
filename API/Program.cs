@@ -32,7 +32,7 @@ app.UseCors(opt =>
 {
     opt.AllowAnyHeader()
        .AllowAnyMethod()
-       .WithOrigins("http://localhost:5173");
+       .WithOrigins("http://localhost:5000");
 });
 
 var scope = app.Services.CreateScope();
