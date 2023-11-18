@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import { Product } from '../models';
-import { ProductCard } from './ProductCard';
+import { ProductCard } from '.';
 
 type Props = {
    products: Product[];

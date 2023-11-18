@@ -5,10 +5,10 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './styles.css';
-import { Layout } from './layout';
+import { AppRouter } from './routes';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
    <React.StrictMode>
-      <Layout />
+      <AppRouter />
    </React.StrictMode>
 );

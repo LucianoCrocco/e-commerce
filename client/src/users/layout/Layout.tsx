@@ -4,11 +4,14 @@ import {
    ThemeProvider,
    createTheme,
 } from '@mui/material';
-import { useState } from 'react';
-import { Header } from '.';
-import { Catalog } from '../components';
+import { ReactNode, useState } from 'react';
+import { Header } from './';
 
-export function Layout(): JSX.Element {
+type Props = {
+   children: ReactNode;
+};
+
+export function Layout({ children }: Props): JSX.Element {
    const [darkMode, setDarkMode] = useState<boolean>(false);
 
    const handleDarkMode = () => {
@@ -28,9 +31,7 @@ export function Layout(): JSX.Element {
       <ThemeProvider theme={theme}>
          <CssBaseline />
          <Header darkMode={darkMode} handleDarkMode={handleDarkMode} />
-         <Container>
-            <Catalog />
-         </Container>
+         <Container>{children}</Container>
       </ThemeProvider>
    );
 }

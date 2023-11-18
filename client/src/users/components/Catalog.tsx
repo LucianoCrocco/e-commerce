@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../models';
-import { ProductList } from './ProductList';
+import { ProductList } from '.';
 
 export function Catalog(): JSX.Element {
    const [products, setProducts] = useState<Product[]>([]);
