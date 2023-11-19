@@ -7,7 +7,7 @@ type Props = {
 };
 export function ProductList({ products }: Props) {
    return (
-      <Grid container spacing={4}>
+      <Grid container spacing={4} sx={{ mb: 4 }}>
          {products.map((product, index) => (
             <Grid item xs={3} key={index}>
                <ProductCard product={product} />

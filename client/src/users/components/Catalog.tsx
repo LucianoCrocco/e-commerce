@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
 import { Product } from '../models';
 import { ProductList } from '.';
+import { useFetch } from '../../hooks';
 
 export function Catalog(): JSX.Element {
-   const [products, setProducts] = useState<Product[]>([]);
+   const { data, isLoading, hasError } = useFetch<Product[]>(
+      'http://localhost:5000/api/products'
+   );
 
-   useEffect(() => {
-      fetch('http://localhost:5000/api/products')
-         .then((res) => res.json())
-         .then((data) => setProducts(data));
-   }, []);
    return (
       <>
-         <ProductList products={products} />
+         {isLoading || hasError ? (
+            <h3>Loading...</h3>
+         ) : (
+            <ProductList products={data!} />
+         )}
       </>
    );
 }
