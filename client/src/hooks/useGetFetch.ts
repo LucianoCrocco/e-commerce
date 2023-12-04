@@ -6,7 +6,7 @@ interface State<T> {
    hasError?: boolean;
 }
 
-export function useFetch<T = unknown>(url: string) {
+export function useGetFetch<T>(endpoint: string) {
    const [state, setState] = useState<State<T>>({
       data: null,
       isLoading: true,
@@ -19,8 +19,11 @@ export function useFetch<T = unknown>(url: string) {
             ...state,
             isLoading: true,
          });
-         const resp = await fetch(url);
+
+         const resp = await fetch(`http://localhost:5000/api/${endpoint}`);
          const data = await resp.json();
+
+         if (resp.status > 400) throw new Error(data);
 
          setState({
             data,
@@ -39,7 +42,7 @@ export function useFetch<T = unknown>(url: string) {
    useEffect(() => {
       getFetch();
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [url]);
+   }, [endpoint]);
 
    return {
       data: state.data,

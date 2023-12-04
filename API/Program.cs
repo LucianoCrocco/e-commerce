@@ -1,4 +1,5 @@
 using API.Data;
+using API.Middlewares;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,8 @@ builder.Services.AddCors();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
+app.UseMiddleware<ExceptionMW>();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -38,6 +41,7 @@ app.UseCors(opt =>
 var scope = app.Services.CreateScope();
 var context = scope.ServiceProvider.GetRequiredService<StoreContext>();
 var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+
 try
 {
     context.Database.Migrate();
