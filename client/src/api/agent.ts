@@ -11,6 +11,15 @@ axios.interceptors.response.use(
       const { data, status } = error.response as AxiosResponse;
       switch (status) {
          case 400:
+            if (data.errors) {
+               const modelStateErrors: string[] = [];
+               for (const key in data.errors) {
+                  if (data.errors[key]) {
+                     modelStateErrors.push(data.errors[key]);
+                  }
+               }
+               throw modelStateErrors.flat();
+            }
             toast.error(data.title);
             break;
          case 401:
@@ -41,16 +50,11 @@ const Catalog = {
 };
 
 const TestErrors = {
-   get400Error: () =>
-      requests.get('buggy/bad-request').catch((err) => console.log(err)),
-   get401Error: () =>
-      requests.get('buggy/unauthorized').catch((err) => console.log(err)),
-   get404Error: () =>
-      requests.get('buggy/not-found').catch((err) => console.log(err)),
-   get500Error: () =>
-      requests.get('buggy/server-error').catch((err) => console.log(err)),
-   getValidationError: () =>
-      requests.get('buggy/validation-error').catch((err) => console.log(err)),
+   get400Error: () => requests.get('buggy/bad-request'),
+   get401Error: () => requests.get('buggy/unauthorized'),
+   get404Error: () => requests.get('buggy/not-found'),
+   get500Error: () => requests.get('buggy/server-error'),
+   getValidationError: () => requests.get('buggy/validation-error'),
 };
 
 export const agent = {

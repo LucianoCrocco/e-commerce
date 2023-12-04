@@ -9,20 +9,26 @@ import {
    Typography,
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import { useGetFetch } from '../../hooks';
 import { Product } from '../models';
+import { useEffect, useState } from 'react';
+import { agent } from '../../api';
 
 export function ProductDetails(): JSX.Element {
    const { id } = useParams<string>();
 
-   const {
-      data: product,
-      isLoading,
-      hasError,
-   } = useGetFetch<Product>(`products/${id}`);
+   const [loading, setLoading] = useState<boolean>(true);
+   const [product, setProduct] = useState<Product | null>(null);
 
-   if (isLoading) return <h3>Loading...</h3>;
-   if (hasError) return <h3>Product not found</h3>;
+   useEffect(() => {
+      id &&
+         agent.Catalog.details(parseInt(id))
+            .then((resp) => setProduct(resp))
+            .catch((error) => console.log(error))
+            .finally(() => setLoading(false));
+   }, [id]);
+
+   if (loading) return <h3>Loading...</h3>;
+   if (!product) return <h3>Product not found</h3>;
 
    return (
       <Grid container spacing={6}>
