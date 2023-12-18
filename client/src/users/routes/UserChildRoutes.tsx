@@ -1,5 +1,13 @@
 import { RouteObject } from 'react-router-dom';
-import { AboutPage, Catalog, ContactPage, HomePage, ProductDetails } from '..';
+import {
+   AboutPage,
+   Catalog,
+   ContactPage,
+   HomePage,
+   NotFound,
+   ProductDetails,
+   ServerError,
+} from '..';
 
 export const UserChildRoutes: Array<RouteObject> = [
    {
@@ -21,5 +29,13 @@ export const UserChildRoutes: Array<RouteObject> = [
    {
       path: '/contact',
       element: <ContactPage />,
+   },
+   {
+      path: '/server-error',
+      element: <ServerError />,
+   },
+   {
+      path: '/not-found',
+      element: <NotFound />,
    },
 ];

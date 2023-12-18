@@ -12,6 +12,7 @@ import { useParams } from 'react-router-dom';
 import { Product } from '../models';
 import { useEffect, useState } from 'react';
 import { agent } from '../../api';
+import { LoadingComponent, NotFound } from '..';
 
 export function ProductDetails(): JSX.Element {
    const { id } = useParams<string>();
@@ -27,8 +28,8 @@ export function ProductDetails(): JSX.Element {
             .finally(() => setLoading(false));
    }, [id]);
 
-   if (loading) return <h3>Loading...</h3>;
-   if (!product) return <h3>Product not found</h3>;
+   if (loading) return <LoadingComponent />;
+   if (!product) return <NotFound />;
 
    return (
       <Grid container spacing={6}>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZRzI1EdVj1QdaAMNFBQ+ZdqVoE8bMlFsdeBMI2r1n9sLy7y8io2LBj5W4jLjP68UflzvwBA/9JL7vScOh2n5Tw==",
+  "dgSpecHash": "z13a7Q8ngxGmpQpKM5N/wvv7wTJTDFS0roA4/RHxI08EtXmVDUlz0AzWcxZRi3I5hcdxhnyRf3dXS6TwZADJSw==",
   "success": true,
-  "projectFilePath": "/home/lacrocco/e-commerce/API/API.csproj",
+  "projectFilePath": "/home/lacrocco/Repos/e-commerce/API/API.csproj",
   "expectedPackageFiles": [
     "/home/lacrocco/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/lacrocco/.nuget/packages/microsoft.aspnetcore.openapi/7.0.13/microsoft.aspnetcore.openapi.7.0.13.nupkg.sha512",

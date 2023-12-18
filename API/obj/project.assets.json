@@ -1728,11 +1728,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/lacrocco/e-commerce/API/API.csproj",
+      "projectUniqueName": "/home/lacrocco/Repos/e-commerce/API/API.csproj",
       "projectName": "API",
-      "projectPath": "/home/lacrocco/e-commerce/API/API.csproj",
+      "projectPath": "/home/lacrocco/Repos/e-commerce/API/API.csproj",
       "packagesPath": "/home/lacrocco/.nuget/packages/",
-      "outputPath": "/home/lacrocco/e-commerce/API/obj/",
+      "outputPath": "/home/lacrocco/Repos/e-commerce/API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/lacrocco/.nuget/NuGet/NuGet.Config"
@@ -1797,7 +1797,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
       }
     }
   }
