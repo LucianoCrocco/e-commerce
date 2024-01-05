@@ -21,9 +21,9 @@ namespace API.Entities
          //* Falta implementar los cambios en la db, esto solo es en memoria
       }
 
-      public void RemoveItem(Product product, int qty)
+      public void RemoveItem(int id, int qty)
       {
-         var item = Items.FirstOrDefault(item => item.ProductId == product.Id);
+         var item = Items.FirstOrDefault(item => item.ProductId == id);
          if (item == null) return;
          item.Quantity -= qty;
          if (item.Quantity <= 0)
